@@ -1,5 +1,5 @@
 const listaTweets = document.getElementById('lista-tweets');
-
+const form = document.querySelector('#formulario');
 //Agregar el contenido al DOM
 function eventListener (){
     document.querySelector('#formulario').addEventListener('submit', sendTweet);
@@ -15,12 +15,11 @@ function sendTweet(e){
     const botonBorrrar = document.createElement('a');
     botonBorrrar.classList='borrar-tweet';
     botonBorrrar.textContent='X';
-
     const li = document.createElement('li');
     li.textContent = tweet;
     li.appendChild(botonBorrrar);
     listaTweets.appendChild(li);
-
+    form.reset();
     //Añadir al Local Storage
     addLocalStorage(tweet);
 }
@@ -70,12 +69,12 @@ function deleteLocalStorage(tweet){
     let tweets, tweetBorrar;
     tweetBorrar=tweet.substring(0,tweet.length - 1);
     tweets = obtenerTweetLocalStorgae();
-    tweets.forEach(function(tweet, idx){
-       if (tweetBorrar === tweet ){
-           tweets.splice(idx, 1);
-       }
-    });
+    tweets.map(function(tweet, idx){
+        if(tweetBorrar === tweet){
+           if (idx > -1){
+            tweets.splice(idx,1);
+           }
+        }
+    })
     localStorage.setItem('tweets', JSON.stringify(tweets));
-
-    console.log(tweets);
 }

@@ -14,3 +14,4 @@ let producto ="iPhone 6";
 producto ="iPhone xs";
 
 console.log(producto);
+
