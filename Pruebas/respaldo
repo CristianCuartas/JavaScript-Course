@@ -1,0 +1,18 @@
+function addToList(infoElements){
+    const row = document.createElement('tr');
+    row.innerHTML = `
+    <td> ${infoElements.nombre} </td>
+    <td> ${infoElements.profesor}</td>
+    <td> ${infoElements.precio}  </td>
+    ${infoElements.id === "1" ? 
+    ` <td> ${infoElements.cantidadC1} </td>`:
+      infoElements.id === "2"?
+    ` <td> ${infoElements.cantidadC2} </td>` : null
+    }
+    <td> 
+    </td>
+    `;
+    
+    console.log('Curso 1:',infoElements.cantidadC1, 'Curso 2:',infoElements.cantidadC2, 'Curso 3:',infoElements.cantidadC3);
+    lista.appendChild(row);
+}
