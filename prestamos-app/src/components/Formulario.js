@@ -30,7 +30,7 @@ class Formulario extends Component {
     render() { 
         const{cantidad} =this.state;
         return ( 
-            <form onSubmit={this.calcularPrestamo}>
+            <form onSubmit={this.calcularPrestamo} >
             
             <div>
                 <label>Cantidad de prestamo:</label>

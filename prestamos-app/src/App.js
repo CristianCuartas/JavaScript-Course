@@ -3,7 +3,7 @@ import './normalize.css';
 import './skeleton.css';
 import Formulario from './components/Formulario';
 
-class App extends Component() {
+class App extends Component {
 
   datosPrestamo = () =>{
     console.log('Desde app js');
