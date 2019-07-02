@@ -9,7 +9,8 @@ class Formulario extends Component {
     }
     calcularPrestamo = (e)=>{
         e.preventDefault();
-        this.props.datosPrestamo();
+        const {cantidad, plazo} = this.state;
+        this.props.datosPrestamo(cantidad, plazo);
     }
 
 
@@ -23,12 +24,11 @@ class Formulario extends Component {
     habilitarSubmit =()=>{
         const {cantidad, plazo} =this.state;
         const noValido = !cantidad || !plazo;
-        console.log(noValido);
+        // console.log(noValido);
         return noValido;
     }
     
-    render() { 
-        const{cantidad} =this.state;
+    render() {
         return ( 
             <form onSubmit={this.calcularPrestamo} >
             
