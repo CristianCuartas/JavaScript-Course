@@ -4,13 +4,12 @@ block contenido
         h1.text-center.mb-5 #{pagina}
         .row
             .col-md-12
-                include ../layout/partials/testimoniales
+                include ../layout/partials/testimoniales 
             .col-md-12
                 h2.text-center Agrega un testimonial
                 if(errores)
                     each error in errores
                         .alert.alert-danger.text-center=error.mensaje
-
                 .row.justify-content-center
                     .col-md-8
                         form(action="/testimoniales", method="POST")
@@ -25,3 +24,5 @@ block contenido
                                 textarea#mensaje(name="mensaje", class="form-control", rows="3", placeholder="Tu mensaje")=mensaje
                             br
                             input.btn.btn-success.btn-block(type="submit", value="Agregar")
+
+                            
