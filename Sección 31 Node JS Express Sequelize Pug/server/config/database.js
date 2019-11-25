@@ -1,16 +1,23 @@
 const Sequelize = require('sequelize');
-module.exports = new Sequelize('agenciadeviajes','root', '', {
-    host: '127.0.0.1',
-    port: '3306',
+require('dotenv').config({ path: 'variables.env' });
+
+module.exports = new Sequelize(
+  process.env.BD_NOMBRE,
+  process.env.BD_USER,
+  process.env.BD_PASS,
+  {
+    host: process.env.BD_HOST,
+    port: process.env.BD_PORT,
     dialect: 'mysql',
-    define:{
-        timestamps: false
+    define: {
+      timestamps: false
     },
-    pool:{
-        max:5,
-        min:0,
-        acquire:30000,
-        idle:10000
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
     },
     operatorsAliases: false
-});
+  }
+);
