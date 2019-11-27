@@ -3,8 +3,8 @@ const Paciente = require('../models/Paciente');
 //Cuando se crea un nuevo cleinte
 exports.nuevoCliente = async (req, res, next) => {
   //TOD
-  const paciente = new Paciente(req.body);
   try {
+    const paciente = new Paciente(req.body);
     await paciente.save();
     res.json({ mensaje: 'El cliente se agregó correctamente' });
   } catch (error) {
@@ -54,7 +54,6 @@ exports.eliminarPaciente = async (req, res, next) => {
   try {
     await Paciente.findOneAndDelete({ _id: req.params.id });
     res.json({ mensaje: 'El paciente se ha eliminado con éxito.' });
-    // res.status(200, 'El paciente se ha eliminado con éxito.');
   } catch (error) {
     console.log(error);
     next();

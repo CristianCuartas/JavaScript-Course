@@ -9,8 +9,12 @@ const pacientesSchema = new Schema({
     type: String,
     trim: true
   },
+  telefono: {
+    type: Number,
+    trim: true
+  },
   fecha: {
-    type: String,
+    type: Date,
     trim: true
   },
   hora: {
